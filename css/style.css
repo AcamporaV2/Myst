@@ -51,7 +51,7 @@ main {
 .game {
     background-color: #243447;
     border-radius: 10px;
-    padding: 20px;
+    padding: 10px;
     flex: 1;
     text-align: center;
 }
@@ -70,7 +70,7 @@ button {
     color: #fff;
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
 }
 
