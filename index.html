@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Myst</title>
+    <script src="https://www.paypal.com/sdk/js?client-id=ATGBIOAVs7XTJb0fttF07srlffBlwh7txfjArGVwJ7xx8z4coD1dANxm5U108gWRhxKd4xuvZHXNE5ah"></script>
+
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -49,7 +51,17 @@
 
             <!-- Aggiungi altri elementi di gioco come necessario -->
         </section>
+        
+      
+        
+        <div id="paypal-button-container"> paga con paypal</div>
+        <script src="https://www.paypal.com/sdk/js?client-id=ATGBIOAVs7XTJb0fttF07srlffBlwh7txfjArGVwJ7xx8z4coD1dANxm5U108gWRhxKd4xuvZHXNE5ah"></script>
+        <div id="successModal">
+            <p>Payment successful!</p>
+            <button onclick="hideSuccessModal()">Close</button>
+        </div>
 
+    
         <!-- Altre sezioni per diverse categorie di giochi, ecc. -->
     </main>
 
@@ -63,15 +75,8 @@
             </ul>
         </div>
     </footer>
-
-    <script src="js/script.js"></script>
-    <script>
-        function addToFavorites(gameId) {
-            // Qui dovresti implementare la logica per aggiungere il gioco ai preferiti
-            // Potresti utilizzare localStorage, un database, o qualsiasi altro metodo di persistenza dei dati.
-            // In questo esempio, mostro un messaggio di alert.
-            alert(`Il gioco con ID ${gameId} è stato aggiunto ai preferiti.`);
-        }
-    </script>
+    <!-- Script javascript -->
+    <script src="js/script.js"></script> 
+   
 </body>
 </html>
