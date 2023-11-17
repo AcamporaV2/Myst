@@ -5,43 +5,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile - My Game Shop</title>
     <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .user-info img {
+            border-radius: 10%;
+            margin-bottom: 10px;
+            float: left;
+            margin-right: 10px;
+        }
+
+        .user-info h3 a {
+            color: #3498db;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .user-purchases {
+            clear: both; 
+        }
+
+        .friends-list {
+        width: 48%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-left: auto;
+    }
+
+        .game {
+        width: 48%; /* Larghezza del 48% per affiancare gli elementi */
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+  </style>
 </head>
 <body>
     <header>
-        <!-- Copia il tuo header qui se necessario -->
+        <nav>
+            <div class="logo">
+                <a href="index.html">   
+                    <img src="images/myst.png" alt="myst logo">
+                </a>  
+            </div>
+            
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Featured</a></li>
+                <li><a href="#">Browse</a></li>
+                <li><a href="#">Community</a></li>
+                <li><a href="login.html">Login</a></li> 
+                <li><a href="signup.html">Sign Up</a></li> 
+            </ul>
+        </nav>
     </header>
 
     <main>
         <section class="user-profile">
             <h2>Welcome, [Nome dell'utente]</h2>
             <div class="user-info">
-                <img src="[URL dell'immagine del profilo]" alt="Profile Picture">
+                <img src="images/question.jpg" alt="Error">
                 <p>Email: [Email dell'utente]</p>
                 <p>Member since: [Data di registrazione]</p>
+                <p>Currently: [Stato utente]</p>
+                <h3><a href="#">Edit profile</a></h3>
                 <!-- Altre informazioni dell'utente possono essere aggiunte qui -->
             </div>
-
+            <div class="friends-list">
+                <h3>Lista amici</h3>
+                <p>No friends, add some!</p>
+                </div>
+            </section>
+            
             <section class="user-purchases">
-                <h3>Your Purchases</h3>
-                <div class="purchase">
-                    <img src="[URL dell'immagine del gioco]" alt="Game Image">
-                    <h4>Game Title</h4>
-                    <p>Description of the game.</p>
+                <h3>Your Last Purchase</h3>
+                <div class="game" id="game1"> 
+                    <img src="images/game2.jpg" alt="Game Image">
+                    <h4>Counter strike 2</h4>
+                    <p>shit game.</p>
+                    <p>Acquistato il: </p>
                     <p>Price: [Prezzo pagato]</p>
+                    <button onclick="Play('game')">Play</button> <button onclick="addToFavorites('game1')">Delete</button> <button onclick="addToFavorites('game1')">Sell</button>
                     <!-- Altre informazioni sull'acquisto possono essere aggiunte qui -->
                 </div>
+
 
                 <!-- Aggiungi altri elementi di acquisto se necessario -->
             </section>
 
             <section class="user-sold">
-                <h3>Your Sold Games</h3>
-                <div class="sold-game">
-                    <img src="[URL dell'immagine del gioco]" alt="Game Image">
-                    <h4>Sold Game Title</h4>
-                    <p>Description of the sold game.</p>
-                    <p>Selling Price: [Prezzo di vendita]</p>
-                    <!-- Altre informazioni sulla vendita possono essere aggiunte qui -->
+                <h3>Your Last Sold Game</h3>
+                <div class="game" id="game3">
+                    <img src="images/game3.jpg" alt="Game 3">
+                    <h3>Persona 5 Royal</h3>
+                    <p>Indossa la maschera e unisciti ai Ladri Fantasma per organizzare colpi sensazionali, infiltrandoti nelle menti corrotte per spingerle a cambiare! </p>
+                    <h4>Sold for: 2€</h4>
+                    <button onclick="window.location.href='Gioco.html'">Vai al gioco</button>
                 </div>
 
                 <!-- Aggiungi altri elementi di vendita se necessario -->
@@ -49,13 +107,14 @@
 
             <section class="user-favorites">
                 <h3>Your Favorite Games</h3>
-                <div class="favorite-game">
-                    <img src="[URL dell'immagine del gioco]" alt="Game Image">
-                    <h4>Favorite Game Title</h4>
-                    <p>Description of the favorite game.</p>
-                    <!-- Altre informazioni sui giochi preferiti possono essere aggiunte qui -->
+                <div class="game" id="game4">
+                    <img src="images/game4.jpg" alt="Game 4">
+                    <h3>Among Us</h3>
+                    <p>Uno spaziale party game di collaborazione e tradimenti per 4-15 giocatori, da giocare in locale oppure online. </p>
+                    <p>Acquistato il: </p>
+                    <p>Price: [Prezzo pagato]</p>
+                    <button onclick="Play('game')">Play</button> <button onclick="addToFavorites('game1')">Delete</button> <button onclick="addToFavorites('game1')">Sell</button>
                 </div>
-
                 <!-- Aggiungi altri giochi preferiti se necessario -->
             </section>
         </section>
