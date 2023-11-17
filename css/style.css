@@ -205,6 +205,13 @@ ol {
 .section-container{
     align-items: left;
     text-align: center;
+    background-color: #243447;
+    border-radius: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 60px;
+    margin-right: 60px;
+    padding: 20px;
 }
 
 .section-container li {
