@@ -1,30 +1,63 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask_session import Session
 from pymongo import MongoClient
+import bcrypt
 
 app = Flask(__name__)
+app.secret_key = 'your_secret_key'  # Cambia con una chiave segreta più sicura
 client = MongoClient('mongodb://localhost:27017')
 db = client.pymongo
 usersCollection = db.users
 
-@app.route('/signup.html', methods=['GET', 'POST'])
+@app.route("/")
+@app.route("/main")
+def main():
+    return render_template('index.html')
+
+@app.route("/signup", methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
-        username = request.form['username']
-        email = request.form['email']
-        password = request.form['password']
+        users = db.users
+        signup_user = users.find_one({'username': request.form['username']})
 
-        user_data = {
-            'username': username,
-            'email': email,
-            'password': password
-        }
+        if signup_user:
+            flash(request.form['username'] + ' username is already exist')
+            return redirect(url_for('signup'))
 
-        result = usersCollection.insert_one(user_data)
-        inserted_id = result.inserted_id
+        hashed = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt(14))
+        users.insert_one({'username': request.form['username'], 'password': hashed, 'email': request.form['email']})
 
-        return f"User registered with ID: {inserted_id}"
+        session['username'] = request.form['username']
+        return redirect(url_for('index'))
 
     return render_template('signup.html')
 
-if __name__ == '__main__':
+@app.route('/index')
+def index():
+    if 'username' in session:
+        return render_template('index.html')
+
+    return render_template('index.html')
+
+@app.route('/signin', methods=['GET', 'POST'])
+def signin():
+    if request.method == 'POST':
+        users = db.users
+        signin_user = users.find_one({'username': request.form['username']})
+
+        if signin_user and bcrypt.checkpw(request.form['password'].encode('utf-8'), signin_user['password']):
+            session['username'] = request.form['username']
+            return redirect(url_for('index'))
+
+        flash('Username and password combination is wrong')
+        return render_template('login.html')
+
+    return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    session.pop('username', None)
+    return redirect(url_for('index'))
+
+if __name__ == "__main__":
     app.run(debug=True)
