@@ -12,12 +12,12 @@ usersCollection = db.users
 @app.route("/")
 @app.route("/main")
 def main():
-    return render_template('index.html')
+    return render_template('/index.html')
 
-@app.route("/signup", methods=['GET', 'POST'])
+@app.route("/signup.html", methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
-        users = db.users
+        users = usersCollection
         signup_user = users.find_one({'username': request.form['username']})
 
         if signup_user:
@@ -28,16 +28,15 @@ def signup():
         users.insert_one({'username': request.form['username'], 'password': hashed, 'email': request.form['email']})
 
         session['username'] = request.form['username']
-        return redirect(url_for('index'))
+        return redirect(url_for('/index.html'))
 
-    return render_template('signup.html')
-
-@app.route('/index')
+    return render_template('/signup.html')
+@app.route('/index.html')
 def index():
     if 'username' in session:
-        return render_template('index.html')
+        return render_template('/index.html')
 
-    return render_template('index.html')
+    return render_template('/index.html')
 
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
@@ -52,7 +51,7 @@ def signin():
         flash('Username and password combination is wrong')
         return render_template('login.html')
 
-    return render_template('login.html')
+    return render_template('/login.html')
 
 @app.route('/logout')
 def logout():
