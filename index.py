@@ -4,7 +4,7 @@ from pymongo import MongoClient
 import bcrypt
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Cambia con una chiave segreta più sicura
+app.secret_key = 'your_secret_key'
 client = MongoClient('mongodb://localhost:27017')
 db = client.pymongo
 usersCollection = db.users
