@@ -7,14 +7,14 @@
     <script src="https://www.paypal.com/sdk/js?client-id=ATGBIOAVs7XTJb0fttF07srlffBlwh7txfjArGVwJ7xx8z4coD1dANxm5U108gWRhxKd4xuvZHXNE5ah"></script>
 
     <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">
-                <a href="index.html">   
-                    <img src="images/myst.png" alt="myst logo">
+                <a href="../index.html">   
+                    <img src="/static/images/myst.png" alt="myst logo">
                 </a>  
             </div>
             
@@ -34,38 +34,38 @@
         
         <section class="featured-games">
             <div class="game" id="game1">
-                <img src="images/game1.jpg" alt="Game 1">
+                <img src="/static/images/game1.jpg" alt="Game 1">
                 <h3>NieR:Automata™</h3>
                 <p>"NieR: Automata" narra la storia degli androidi 2B, 9S e A2 e della loro accanita battaglia per la riconquista di un mondo distopico governato dalle macchine e ora invaso da potenti biomacchine.</p>
                 <h4>Prezzo: 39,99 €</h4>
                 <h4>Usato: 29,99 €</h4>
-                <button onclick="window.location.href='/giocoNier.html'">Vai al gioco</button>
+                <button onclick=window.location.href="{{ url_for('Nier') }}">Vai al gioco</button>
             </div>
 
             <div class="game" id="game2">
-                <img src="images/game2.jpg" alt="Game 2">
+                <img src="/static/images/game2.jpg" alt="Game 2">
                 <h3>Counter-Strike 2</h3>
                 <p>Counter-Strike 2 è uno sparatutto online dove i giocatori sono divisi in due squadre, terroristi e anti-terroristi. Queste due squadre si affrontano in diverse modalità di gioco, le quali prevedono il completamento di diversi obiettivi.</p>
                 <h4>Prezzo: Free-to-play</h4>
-                <button onclick="window.location.href='/giocoCS2.html'">Vai al gioco</button>
+                <button onclick=window.location.href="{{ url_for('CS2') }}">Vai al gioco</button>
             </div>
 
             <div class="game" id="game3">
-                <img src="images/game3.jpg" alt="Game 3">
+                <img src="/static/images/game3.jpg" alt="Game 3">
                 <h3>Persona 5 Royal</h3>
                 <p>Indossa la maschera e unisciti ai Ladri Fantasma per organizzare colpi sensazionali, infiltrandoti nelle menti corrotte per spingerle a cambiare! </p>
                 <h4>Prezzo: 59,99 €</h4>
                 <h4>Usato: 45,99 €</h4>
-                <button onclick="window.location.href='/giocoPersona5.html'">Vai al gioco</button>
+                <button onclick=window.location.href="{{ url_for('Persona5') }}">Vai al gioco</button>
             </div>
 
             <div class="game" id="game4">
-                <img src="images/game4.jpg" alt="Game 4">
+                <img src="/static/images/game4.jpg" alt="Game 4">
                 <h3>Among Us</h3>
                 <p>Uno spaziale party game di collaborazione e tradimenti per 4-15 giocatori, da giocare in locale oppure online. </p>
                 <h4>Prezzo: 4,99 €</h4>
                 <h4>Usato: 45,99 €</h4>
-                <button onclick="window.location.href='/giocoAmongUs.html'">Vai al gioco</button>
+                <button onclick=window.location.href="{{ url_for('Among') }}">Vai al gioco</button>
             </div>
 
         </section>
@@ -75,68 +75,68 @@
         <h2 class="giochi-mostrati">Nuove Uscite</h2>
         <section class="featured-games">
         <div class="game-card">
-            <img src="images/game7.jpg" alt="Baldur's Gate 3">
+            <img src="/static/images/game7.jpg" alt="Baldur's Gate 3">
             <p>Raduna il tuo party, e ritorna nei Reami Perduti in una storia di compagnia e tradimento, sacrificio e sopravvivenza e il richiamo del potere assoluto. </p>
             <div>
               <h3>Baldur's Gate 3</h3>
               <h4>Prezzo:59,99€</h4>
               <h4>Usato:45,99€</h4>
-              <button onclick="window.location.href='/giocoBaldur.html'">Vai al gioco</button>
+              <button onclick=window.location.href="{{ url_for('Baldur') }}">Vai al gioco</button>
             </div>
         </div>
                 
         <div class="game-card">
-            <img src="images/game5.jpg" alt="Ace Attorney Trilogy">
+            <img src="/static/images/game5.jpg" alt="Ace Attorney Trilogy">
             <p>Vesti i panni di Phoenix Wright e prova il brivido della battaglia mentre lotti per salvare i tuoi clienti innocenti in tribunale. Affronta tutti e 14 gli episodi dei primi tre giochi in un'unica collezione.</p>
             <div>
               <h3>Ace Attorney Trilogy</h3>
               <h4>Prezzo:29,99€</h4>
               <h4>Usato:45,99€</h4>
-              <button onclick="window.location.href='/giocoAce.html'">Vai al gioco</button>
+              <button onclick=window.location.href="{{ url_for('Ace') }}">Vai al gioco</button>
             </div>
         </div>
 
         <div class="game-card">
-            <img src="images/game6.jpg" alt="Game Image">
+            <img src="/static/images/game6.jpg" alt="Game Image">
             <p>L'acclamato Outer Wilds è un gioco open world ambientato in un sistema solare intrappolato in un anello temporale senza fine.</p>
             <div>
               <h3>Outer Wilds</h3>
               <h4>Prezzo:19,99€</h4>
               <h4>Usato:14,99€</h4>
-              <button onclick="window.location.href='/giocoOT.html'">Vai al gioco</button>
+              <button onclick=window.location.href="{{ url_for('OT') }}">Vai al gioco</button>
             </div>
         </div>
             
         <div class="game-card">
-            <img src="images/game8.jpg" alt="Game Image">
+            <img src="/static/images/game8.jpg" alt="Game Image">
             <p>Hai ereditato la vecchia fattoria di tuo nonno a Stardew Valley. Armato di strumenti di seconda mano e di qualche moneta, hai deciso di iniziare la tua nuova vita. Puoi imparare a vivere dei frutti della terra e trasformare questi campi incolti in una casa prospera? </p>
             <div>
               <h3>Stardew Valley</h3>
               <h4>Prezzo:19,99€</h4>
               <h4>Usato:14,99€</h4>
-              <button onclick="window.location.href='/giocoStardew.html'">Vai al gioco</button>
+              <button onclick=window.location.href="{{ url_for('Stardew') }}">Vai al gioco</button>
             </div>
         </div>
 
         <div class="game-card">
-            <img src="images/game9.jpg" alt="Game Image">
+            <img src="/static/images/game9.jpg" alt="Game Image">
             <p>Esplora una terra piena di leggende perdute, antichi poteri e mostri feroci in TUNIC, un gioco d'azione isometrico che ha come protagonista una volpe in viaggio per una grande avventura. </p>
             <div>
               <h3>TUNIC</h3>
               <h4>Prezzo:19,99€</h4>
               <h4>Prezzo:19,99€</h4>
-              <button onclick="window.location.href='/giocoTunic.html'">Vai al gioco</button>
+              <button onclick=window.location.href="{{ url_for('Tunic') }}">Vai al gioco</button>
             </div>
         </div>
 
         <div class="game-card">
-            <img src="images/game10.jpg" alt="Game Image">
+            <img src="/static/images/game10.jpg" alt="Game Image">
             <p>In una città in cui le informazioni sono fortemente monitorate, i corrieri chiamati Runners trasportano dati sensibili. In questo paradiso apparentemente utopico è stato commesso un crimine e tu sei braccato. Sei un Runner chiamato Faith e questa innovativa avventura d'azione in prima persona è la tua storia.</p>
             <div>
               <h3>Mirror's Edge</h3>
               <h4>Prezzo:19,99€</h4>
               <h4>Prezzo:19,99€</h4>
-              <button onclick="window.location.href='/giocoMirror.html'">Vai al gioco</button>
+              <button onclick=window.location.href="{{ url_for('Mirror') }}">Vai al gioco</button>
             </div>
         </div>
     </section>
@@ -155,7 +155,7 @@
         </div>
     </footer>
     <!-- Script javascript -->
-    <script src="js/script.js"></script> 
+    <script src="/static/js/script.js"></script> 
    
 </body>
 </html>
