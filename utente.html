@@ -61,55 +61,50 @@
 
     <main>
         <section class="user-profile">
-            <h2>Benvenuto, [Nome dell'utente]!</h2>
-            <div class="user-info">
-                <img src="images/question.jpg" alt="Error">
-                <p>Email: [Email dell'utente]</p>
-                <p>Membro dal: [Data di registrazione]</p>
-                <p>Stato: [Stato utente]</p>
-                <h3><a href="#">Modifica profilo</a></h3>
-            </div>
-            <div class="friends-list">
-                <h3>Lista amici</h3>
-                <p>è così vuoto qui :(, aggiungi qualcuno!</p>
-                </div>
-            </section>
+        <h2>Benvenuto, {{ username }}!</h2>
+        <div class="user-info">
+            <img src="images/question.jpg" alt="Error">
+            <p>Email: {{ email }}</p>
+            <p>Membro dal: {{ data_registrazione }}</p>
+            <p>Stato: {{ stato_utente }}</p>
+            <h3><a href="#">Modifica profilo</a></h3>
+        </div>
+        </section>
             
-            <section class="user-purchases">
-                <h3>Il tuo ultimo acquisto</h3>
-                <div class="game" id="game1"> 
-                    <img src="images/game2.jpg" alt="Game Image">
-                    <h3>Counter strike 2</h3>
-                    <p>Counter-Strike 2 è uno sparatutto online dove i giocatori sono divisi in due squadre, 
-                    terroristi e anti-terroristi. Queste due squadre si affrontano in diverse modalità di gioco, 
-                    le quali prevedono il completamento di diversi obiettivi.</p>
-                    <p>Acquistato il: </p>
-                    <p>Prezzo: [Prezzo pagato]</p>
-                    <button onclick="location.href='https://krunker.io/'">Gioca</button> <button onclick=>Disinstalla</button> <button onclick=>Vendi</button>
-                </div>
-            </section>
-            <section class="user-sold">
-                <h3>Il tuo ultimo gioco venduto</h3>
-                <div class="game" id="game3">
-                    <img src="images/game3.jpg" alt="Game 3">
-                    <h3>Persona 5 Royal</h3>
-                    <p>Indossa la maschera e unisciti ai Ladri Fantasma per organizzare colpi sensazionali, infiltrandoti nelle menti corrotte per spingerle a cambiare! </p>
-                    <h4>Venduto per: 2€</h4>
-                    <button onclick="window.location.href='/giocoPersona5.html'">Vai al gioco</button>
-                </div>
-            </section>
+        <section class="user-purchases">
+            <h3>Il tuo ultimo acquisto</h3>
+            <div class="game" id="game1"> 
+                <img src="images/game2.jpg" alt="Game Image">
+                <h3>Counter strike 2</h3>
+                <p>Counter-Strike 2 è uno sparatutto online dove i giocatori sono divisi in due squadre, 
+                terroristi e anti-terroristi. Queste due squadre si affrontano in diverse modalità di gioco, 
+                le quali prevedono il completamento di diversi obiettivi.</p>
+                <p>Acquistato il: </p>
+                <p>Prezzo: [Prezzo pagato]</p>
+                <button onclick="location.href='https://krunker.io/'">Gioca</button> <button onclick=>Disinstalla</button> <button onclick=>Vendi</button>
+            </div>
+        </section>
+        <section class="user-sold">
+            <h3>Il tuo ultimo gioco venduto</h3>
+            <div class="game" id="game3">
+                <img src="images/game3.jpg" alt="Game 3">
+                <h3>Persona 5 Royal</h3>
+                <p>Indossa la maschera e unisciti ai Ladri Fantasma per organizzare colpi sensazionali, infiltrandoti nelle menti corrotte per spingerle a cambiare! </p>
+                <h4>Venduto per: 2€</h4>
+                <button onclick="window.location.href='/giocoPersona5.html'">Vai al gioco</button>
+            </div>
+        </section>
 
-            <section class="user-favorites">
-                <h3>Il tuo gioco preferito</h3>
-                <div class="game" id="game4">
-                    <img src="images/game7.jpg" alt="Game 7">
-                    <h3>Badulr's Gate 3</h3>
-                    <p>Raduna il tuo party, e ritorna nei Reami Perduti in una storia di compagnia e tradimento, sacrificio e sopravvivenza e il richiamo del potere assoluto. . </p>
-                    <p>Acquistato il: </p>
-                    <p>Prezzo: [Prezzo pagato]</p>
-                    <button onclick="location.href=' https://youtu.be/UCxFhfQFaec?si=LUj-AokDi-x6VBOb'">Gioca</button> <button onclick=>Disinstalla</button> <button onclick=>Vendi</button>
-                </div>
-            </section>
+        <section class="user-favorites">
+            <h3>Il tuo gioco preferito</h3>
+            <div class="game" id="game4">
+                <img src="images/game7.jpg" alt="Game 7">
+                <h3>Badulr's Gate 3</h3>
+                <p>Raduna il tuo party, e ritorna nei Reami Perduti in una storia di compagnia e tradimento, sacrificio e sopravvivenza e il richiamo del potere assoluto. . </p>
+                <p>Acquistato il: </p>
+                <p>Prezzo: [Prezzo pagato]</p>
+                <button onclick="location.href=' https://youtu.be/UCxFhfQFaec?si=LUj-AokDi-x6VBOb'">Gioca</button> <button onclick=>Disinstalla</button> <button onclick=>Vendi</button>
+            </div>
         </section>
     </main>
 
@@ -118,5 +113,4 @@
 
     <script src="js/script.js"></script>
 </body>
-</html>
 </html>
