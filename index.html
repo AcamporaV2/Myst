@@ -20,9 +20,7 @@
             
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#">Featured</a></li>
-                <li><a href="#">Browse</a></li>
-                <li><a href="#">Community</a></li>
+                <li><a onclick=window.location.href="{{ url_for('utente') }}">Utente</a></li>
                 <li><a href="login.html">Login</a></li> 
                 <li><a href="signup.html">Sign Up</a></li> 
             </ul>
@@ -45,7 +43,7 @@
             <div class="game" id="game2">
                 <img src="/static/images/game2.jpg" alt="Game 2">
                 <h3>Counter-Strike 2</h3>
-                <p>Counter-Strike 2 è uno sparatutto online dove i giocatori sono divisi in due squadre, terroristi e anti-terroristi. Queste due squadre si affrontano in diverse modalità le quali prevedono il completamento di diversi obiettivi.</p>
+                <p>Counter-Strike 2 è uno sparatutto online dove i giocatori sono divisi in due squadre, terroristi e anti-terroristi. Queste due squadre si affrontano in diverse modalità di gioco, le quali prevedono il completamento di diversi obiettivi.</p>
                 <h4>Prezzo: Free-to-play</h4>
                 <button onclick=window.location.href="{{ url_for('CS2') }}">Vai al gioco</button>
             </div>
@@ -76,7 +74,7 @@
         <section class="featured-games">
         <div class="game-card">
             <img src="/static/images/game7.jpg" alt="Baldur's Gate 3">
-            <p>Raduna il tuo party, trova nuovi compagni e ritorna nei Reami Perduti in una storia di compagnia, tradimento, sacrificio, avventura e sopravvivenza  e al richiamo del potere assoluto </p>
+            <p>Raduna il tuo party, e ritorna nei Reami Perduti in una storia di compagnia e tradimento, sacrificio e sopravvivenza e il richiamo del potere assoluto. </p>
             <div>
               <h3>Baldur's Gate 3</h3>
               <h4>Prezzo:59,99€</h4>
