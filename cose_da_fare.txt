@@ -1,8 +1,0 @@
-Da fare per Tech Web:
- 
-~) Pagine dei giochi - Simone & Lorenzo
-~) Completare la home page - Simone
-~) Carrello/Pagamento (function che aggiunge gioco al carrello) - poi si vede
-~) Data base per login/registrazione - Lorenzo
-~) Completare la pagina utente - Daniele
-~) Ottimizzazione PWA - poi si vede
