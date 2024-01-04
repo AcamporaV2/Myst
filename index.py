@@ -3,16 +3,20 @@ from flask_session import Session
 from pymongo import MongoClient
 from datetime import datetime
 
+# Instantiate Flask object named app and the location of template and static folder
 app = Flask(__name__, template_folder='../Myst', static_folder='static')
-app.secret_key = 'your_secret_key'  # Cambia con una chiave segreta più sicura
+app.secret_key = 'your_secret_key'  
+
+# Created a connection to the MongoDB database with pymongo
 client = MongoClient('mongodb://localhost:27017')
 db = client.pymongo
 usersCollection = db.users
 
-# Configura Flask-Session
+# Configures Flask-Session
 app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
 
+# A set off app.route that manages the various html pages
 @app.route('/')
 @app.route('/main')
 def main():
@@ -26,13 +30,13 @@ def index():
 def signup():
     if request.method == 'POST':
         users = usersCollection
-        signup_user = users.find_one({'username': request.form['username']})
+        signup_user = users.find_one({'username': request.form['username']}) # Checks if the user is already in the database
 
         if signup_user:
             flash(request.form['username'] + ' username is already exist')
             return redirect(url_for('signup'))
 
-        users.insert_one({'username': request.form['username'], 'password': request.form['password'], 'email': request.form['email']})
+        users.insert_one({'username': request.form['username'], 'password': request.form['password'], 'email': request.form['email']})  # A new user is registred in the database
 
         session['username'] = request.form['username']
         return redirect(url_for('login'))
@@ -43,11 +47,11 @@ def signup():
 def login():
     if request.method == 'POST':
         users = db.users
-        signin_user = users.find_one({'username': request.form['username'], 'password': request.form['password']})
+        signin_user = users.find_one({'username': request.form['username'], 'password': request.form['password']}) # Checks if the user is registred
 
         if signin_user:
             session['username'] = request.form['username']
-            return redirect(url_for('utente'))  # Reindirizza a utente.html dopo il login
+            return redirect(url_for('utente'))  # if signin_user is true, it redirects the user in the utente.html page
 
         flash('Username and password combination is wrong')
 
@@ -55,11 +59,11 @@ def login():
 
 @app.route('/utente')
 def utente():
-    # Controlla se l'utente è autenticato prima di visualizzare la pagina utente
+    # Checks if the user is in session before redirecting to the user page
     if 'username' in session:
         username = session['username']
 
-        # Ora dovresti interrogare il database per ottenere le informazioni dell'utente
+        # We check if the username is in the database
         users = db.users
         user_data = users.find_one({'username': username})
 
@@ -70,12 +74,18 @@ def utente():
 
             return render_template('utente.html', username=username, email=email, data_registrazione=data_registrazione, stato_utente=stato_utente)
         else:
-            flash('Utente non trovato nel database.')
+            flash('Utente non trovato nel database.') # If the username is wrong it redirects to the login page
             return redirect(url_for('login'))
     else:
         flash('Devi effettuare il login per accedere a questa pagina.')
         return redirect(url_for('login'))
     
+@app.route('/logout.html')
+def logout():
+    session.pop('username', None)
+    return redirect(url_for('index'))
+
+# A series of app.route that renders the various game pages
 @app.route('/giocoAce')
 def Ace():
     return render_template('giocoAce.html')
