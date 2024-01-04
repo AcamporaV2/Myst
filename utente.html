@@ -5,51 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile - My Game Shop</title>
     <link rel="stylesheet" href="/static/css/style.css">
-    <style>
-        .user-info img {
-            border-radius: 10%;
-            margin-bottom: 10px;
-            float: left;
-            margin-right: 10px;
-        }
-
-        .user-info h3 a {
-            color: #3498db;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .user-purchases {
-            clear: both; 
-        }
-
-        .friends-list {
-        width: 48%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        margin-left: auto;
-    }
-
-        .game {
-        width: 48%; 
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-  </style>
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">
                 <a href="index.html">   
-                    <img src="/static/images/myst.png" alt="myst logo">
+                    <img src="../static/images/myst.png" alt="myst logo">
                 </a>  
             </div>
             
             <ul>
                 <li><a href="index.html">Home</a></li>
+                <li><a onclick=window.location.href="{{ url_for('utente') }}">Utente</a></li>
                 <li><a href="login.html">Login</a></li> 
                 <li><a href="signup.html">Sign Up</a></li> 
             </ul>
@@ -63,49 +31,61 @@
             <img src="/static/images/question.png" alt="Error">
             <p>Email: {{ email }}</p>
             <p>Membro dal: {{ data_registrazione }}</p>
+            <p>Stato: {{ stato_utente }}</p>
             <h3><a href="#">Modifica profilo</a></h3>
         </div>
         </section>
-            
+        <h3>Il tuoi ultimi acquisti</h3>
         <section class="user-purchases">
-            <h3>Il tuo ultimo acquisto</h3>
             <div class="game" id="game1"> 
-                <img src="images/game2.jpg" alt="Game Image">
+                <img src="/static/images/game2.jpg" alt="Game Image">
                 <h3>Counter strike 2</h3>
                 <p>Counter-Strike 2 è uno sparatutto online dove i giocatori sono divisi in due squadre, 
-                terroristi e anti-terroristi. Queste due squadre si affrontano in diverse modalità di gioco, 
+                terroristi e anti-terroristi. Queste due squadre si affrontano in diverse modalità
                 le quali prevedono il completamento di diversi obiettivi.</p>
-                <p>Acquistato il: </p>
-                <p>Prezzo: [Prezzo pagato]</p>
-                <button onclick="location.href='https://krunker.io/'">Gioca</button> <button onclick=>Disinstalla</button> <button onclick=>Vendi</button>
+                <button onclick="location.href='https://krunker.io/'">Gioca</button><button onclick=window.location.href="{{ url_for('CS2') }}">Vai al gioco</button> 
+            </div>
+            <div class="game" id="game4">
+            <img src="/static/images/game7.jpg" alt="Game 7">
+                <h3>Badulr's Gate 3</h3>
+                <p>Raduna il tuo party, trova nuovi compagni e ritorna nei Reami Perduti in una storia di compagnia, tradimento, sacrificio, avventura e sopravvivenza  e al richiamo del potere assoluto</p>
+                <button onclick="location.href=' https://youtu.be/UCxFhfQFaec?si=LUj-AokDi-x6VBOb'">Gioca</button> <button onclick=window.location.href="{{ url_for('Baldur') }}">Vai al gioco</button> 
+            </div>
+            <div class="game" id="game1">
+                <img src="/static/images/game1.jpg" alt="Game 1">
+                <h3>NieR:Automata™</h3>
+                <p>"NieR: Automata" narra la storia degli androidi 2B, 9S e A2 e della loro accanita battaglia per la riconquista di un mondo distopico governato dalle macchine e ora invaso da potenti biomacchine.</p>
+                <button onclick="location.href=' https://minesweeper.online/it/'">Gioca</button> <button onclick=window.location.href="{{ url_for('Nier') }}">Vai al gioco</button> 
+            </div>
+            <div class="game" id="game9">
+                <img src="/static/images/game5.jpg" alt="Ace Attorney Trilogy">
+                <h3>Ace Attorney Trilogy</h3>
+                <p>Vesti i panni di Phoenix Wright e prova il brivido della battaglia mentre lotti per salvare i tuoi clienti innocenti in tribunale. Affronta tutti e 14 gli episodi dei primi tre giochi in un'unica collezione.</p>
+                <button onclick="location.href='https://aceattorneyonline.com/'">Gioca</button> <button onclick=window.location.href="{{ url_for('Nier') }}">Vai al gioco</button> 
             </div>
         </section>
         <section class="user-sold">
             <h3>Il tuo ultimo gioco venduto</h3>
             <div class="game" id="game3">
-                <img src="images/game3.jpg" alt="Game 3">
+                <img src="/static/images/game3.jpg" alt="Game 3">
                 <h3>Persona 5 Royal</h3>
                 <p>Indossa la maschera e unisciti ai Ladri Fantasma per organizzare colpi sensazionali, infiltrandoti nelle menti corrotte per spingerle a cambiare! </p>
-                <h4>Venduto per: 2€</h4>
-                <button onclick="window.location.href='/giocoPersona5.html'">Vai al gioco</button>
-            </div>
-        </section>
-
-        <section class="user-favorites">
-            <h3>Il tuo gioco preferito</h3>
-            <div class="game" id="game4">
-                <img src="images/game7.jpg" alt="Game 7">
-                <h3>Badulr's Gate 3</h3>
-                <p>Raduna il tuo party, e ritorna nei Reami Perduti in una storia di compagnia e tradimento, sacrificio e sopravvivenza e il richiamo del potere assoluto. . </p>
-                <p>Acquistato il: </p>
-                <p>Prezzo: [Prezzo pagato]</p>
-                <button onclick="location.href=' https://youtu.be/UCxFhfQFaec?si=LUj-AokDi-x6VBOb'">Gioca</button> <button onclick=>Disinstalla</button> <button onclick=>Vendi</button>
+                <h4>Venduto per: 39.99€</h4>
+                <button onclick=window.location.href="{{ url_for('Persona5') }}">Vai al gioco</button>
             </div>
         </section>
     </main>
-
     <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 Myst</p>
+            <ul>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
     </footer>
+    <script src="/static/js/script.js"></script> 
 
     <script src="js/script.js"></script>
 </body>
