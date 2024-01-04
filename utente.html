@@ -44,15 +44,12 @@
         <nav>
             <div class="logo">
                 <a href="index.html">   
-                    <img src="images/myst.png" alt="myst logo">
+                    <img src="/static/images/myst.png" alt="myst logo">
                 </a>  
             </div>
             
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#">Featured</a></li>
-                <li><a href="#">Browse</a></li>
-                <li><a href="#">Community</a></li>
                 <li><a href="login.html">Login</a></li> 
                 <li><a href="signup.html">Sign Up</a></li> 
             </ul>
@@ -63,10 +60,9 @@
         <section class="user-profile">
         <h2>Benvenuto, {{ username }}!</h2>
         <div class="user-info">
-            <img src="images/question.jpg" alt="Error">
+            <img src="/static/images/question.png" alt="Error">
             <p>Email: {{ email }}</p>
             <p>Membro dal: {{ data_registrazione }}</p>
-            <p>Stato: {{ stato_utente }}</p>
             <h3><a href="#">Modifica profilo</a></h3>
         </div>
         </section>
