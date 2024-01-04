@@ -272,12 +272,22 @@ text-align: center;
 
 .user-purchases {
     display: flex;
-    justify-content: space-between; /* Adjust as needed */
+    justify-content: space-between;
 }
 
 
 .user-purchases button {
-    margin-top: 10px; /* Add spacing between buttons */}
+    margin-top: 10px; }
+
+.custom-link {
+        color: rgb(255, 255, 255);
+        text-decoration: none; 
+}
+
+.custom-link:hover {
+    color: #adadad;
+
+}
 
     
 
