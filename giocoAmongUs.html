@@ -6,7 +6,15 @@
     <title>Among Us</title>
     <script src="https://www.paypal.com/sdk/js?client-id=ATGBIOAVs7XTJb0fttF07srlffBlwh7txfjArGVwJ7xx8z4coD1dANxm5U108gWRhxKd4xuvZHXNE5ah"></script>
 
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="../manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('{{ url_for("service_worker", filename="service-worker.js") }}')
+                .then(registration => console.log('Service Worker registered with scope:', registration.scope))
+                .catch(error => console.error('Service Worker registration failed:', error));
+        }
+    </script>
+
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
@@ -20,12 +28,10 @@
             </div>
             
             <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="#">Featured</a></li>
-                <li><a href="#">Browse</a></li>
-                <li><a href="#">Community</a></li>
-                <li><a href="../login.html">Login</a></li> 
-                <li><a href="../signup.html">Sign Up</a></li> 
+                <li><a href="index.html">Home</a></li>
+                <li><a onclick=window.location.href="{{ url_for('utente') }}">Utente</a></li>
+                <li><a href="login.html">Login</a></li> 
+                <li><a href="signup.html">Sign Up</a></li> 
             </ul>
         </nav>
     </header>
@@ -64,9 +70,9 @@
     <section id="reviews">
         <div class="section-container">
             <h2>Reviews</h2>
-            <p><a href="https://www.ign.com/articles/among-us-review" class="custom-link">IGN</a> - "My favorite murder.", 9/10</p>
-            <p><a href="https://www.spaziogames.it/recensioni/among-us-recensione-ammaliante-impostore" class="custom-link">Spaziogame</a> - "parliamo di Among Us e della sua (divertente) caccia alla spia ", 7.4/10</p>
-            <p><a href="https://multiplayer.it/recensioni/among-us-la-recensione.html" class="custom-link">Multiplayer</a> - "Among Us è ormai un fenomeno globale impressionante, conosciamolo meglio nella nuova recensione.", 8/10</p>
+            <p><a href="https://www.ign.com/articles/among-us-review">IGN</a> - "My favorite murder.", 9/10</p>
+            <p><a href="https://www.spaziogames.it/recensioni/among-us-recensione-ammaliante-impostore">Spaziogame</a> - "parliamo di Among Us e della sua (divertente) caccia alla spia ", 7.4/10</p>
+            <p><a href="https://multiplayer.it/recensioni/among-us-la-recensione.html">Multiplayer</a> - "Among Us è ormai un fenomeno globale impressionante, conosciamolo meglio nella nuova recensione.", 8/10</p>
         </div>
     </section>
 

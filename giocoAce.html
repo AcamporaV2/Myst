@@ -5,7 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ace Attorney Trilogy</title>
     <script src="https://www.paypal.com/sdk/js?client-id=ATGBIOAVs7XTJb0fttF07srlffBlwh7txfjArGVwJ7xx8z4coD1dANxm5U108gWRhxKd4xuvZHXNE5ah"></script>
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="../manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('{{ url_for("service_worker", filename="service-worker.js") }}')
+                .then(registration => console.log('Service Worker registered with scope:', registration.scope))
+                .catch(error => console.error('Service Worker registration failed:', error));
+        }
+    </script>
+
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
@@ -18,14 +26,14 @@
                 </a>  
             </div>
             
+            
             <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="#">Featured</a></li>
-                <li><a href="#">Browse</a></li>
-                <li><a href="#">Community</a></li>
-                <li><a href="../login.html">Login</a></li> 
-                <li><a href="../signup.html">Sign Up</a></li> 
+                <li><a href="index.html">Home</a></li>
+                <li><a onclick=window.location.href="{{ url_for('utente') }}">Utente</a></li>
+                <li><a href="login.html">Login</a></li> 
+                <li><a href="signup.html">Sign Up</a></li> 
             </ul>
+            
         </nav>
     </header>
 
@@ -64,9 +72,9 @@
     <section id="reviews">
         <div class="section-container">
             <h2>Reviews</h2>
-            <p><a href="https://www.everyeye.it/articoli/recensione-phoenix-wright-ace-attorney-trilogy-giustizia-tutti-43393.html" class="custom-link">Everyeye</a> - "Nonostante la trilogia di Ace Attorney sia un diamante duro da scalfire, non possiamo fare a meno di riflettere su quanto la sua riproposizione in salsa collection sia povera di contenuti.", 6.5/10</p>
-            <p><a href="https://it.ign.com/phoenix-wright-ace-attorney-trilogy/153182/review/phoenix-wright-ace-attorney-trilogy-la-recensione" class="custom-link">IGN</a> - "Ora e per sempre... Objection!", 7.5/10</p>
-            <p><a href="https://multiplayer.it/recensioni/phoenix-wright-ace-attorney-trilogy-recensione.html" class="custom-link">Multiplayer</a> - "Colpevole, innocente o... semplicemente tre grandi giochi in uno? Scopritelo nella nostra recensione di Phoenix Wright: Ace Attorney Trilogy.", 8.5/10</p>
+            <p><a href="https://www.everyeye.it/articoli/recensione-phoenix-wright-ace-attorney-trilogy-giustizia-tutti-43393.html">Everyeye</a> - "Nonostante la trilogia di Ace Attorney sia un diamante duro da scalfire, non possiamo fare a meno di riflettere su quanto la sua riproposizione in salsa collection sia povera di contenuti.", 6.5/10</p>
+            <p><a href="https://it.ign.com/phoenix-wright-ace-attorney-trilogy/153182/review/phoenix-wright-ace-attorney-trilogy-la-recensione">IGN</a> - "Ora e per sempre... Objection!", 7.5/10</p>
+            <p><a href="https://multiplayer.it/recensioni/phoenix-wright-ace-attorney-trilogy-recensione.html">Multiplayer</a> - "Colpevole, innocente o... semplicemente tre grandi giochi in uno? Scopritelo nella nostra recensione di Phoenix Wright: Ace Attorney Trilogy.", 8.5/10</p>
         </div>
     </section>
 

@@ -6,7 +6,15 @@
     <title>Counter-Strike 2</title>
     <script src="https://www.paypal.com/sdk/js?client-id=ATGBIOAVs7XTJb0fttF07srlffBlwh7txfjArGVwJ7xx8z4coD1dANxm5U108gWRhxKd4xuvZHXNE5ah"></script>
 
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="../manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('{{ url_for("service_worker", filename="service-worker.js") }}')
+                .then(registration => console.log('Service Worker registered with scope:', registration.scope))
+                .catch(error => console.error('Service Worker registration failed:', error));
+        }
+    </script>
+
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
@@ -20,12 +28,10 @@
             </div>
             
             <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="#">Featured</a></li>
-                <li><a href="#">Browse</a></li>
-                <li><a href="#">Community</a></li>
-                <li><a href="../login.html">Login</a></li> 
-                <li><a href="../signup.html">Sign Up</a></li> 
+                <li><a href="index.html">Home</a></li>
+                <li><a onclick=window.location.href="{{ url_for('utente') }}">Utente</a></li>
+                <li><a href="login.html">Login</a></li> 
+                <li><a href="signup.html">Sign Up</a></li> 
             </ul>
         </nav>
     </header>
@@ -34,7 +40,7 @@
         <div class="section-container">
             <h1>Counter-Strike 2</h1>
             <img src="/static/images/game2.jpg">
-            <p>Counter-Strike 2 è uno sparatutto online dove i giocatori sono divisi in due squadre, terroristi e anti-terroristi. Queste due squadre si affrontano in diverse modalità di gioco, le quali prevedono il completamento di diversi obiettivi</p>
+            <p>Counter-Strike 2 è uno sparatutto online dove i giocatori sono divisi in due squadre, terroristi e anti-terroristi. Queste due squadre si affrontano in diverse modalità le quali prevedono il completamento di diversi obiettivi.</p>
             
         </div>
     </section>
@@ -65,8 +71,8 @@
     <section id="reviews">
         <div class="section-container">
             <h2>Reviews</h2>
-            <p><a href="https://www.pcgamesn.com/counter-strike-2/review" class="custom-link">PCGamesN</a> - "Valve has improved the Counter-Strike formula with the release of CS2, even if there's still a lot of work to be done before it's feature complete ", 8/10</p>
-            <p><a href="https://www.gamereactor.eu/counter-strike-2-1313403/" class="custom-link">Gamereactor UK</a> - "Counter-Strike 2 is a solid package in many ways. It's still the best in its sub-genre and I can see myself playing it for thousands of hours, as I did with its predecessors.", 8/10</p>
+            <p><a href="https://www.pcgamesn.com/counter-strike-2/review">PCGamesN</a> - "Valve has improved the Counter-Strike formula with the release of CS2, even if there's still a lot of work to be done before it's feature complete ", 8/10</p>
+            <p><a href="https://www.gamereactor.eu/counter-strike-2-1313403/">Gamereactor UK</a> - "Counter-Strike 2 is a solid package in many ways. It's still the best in its sub-genre and I can see myself playing it for thousands of hours, as I did with its predecessors.", 8/10</p>
         </div>
     </section>
 

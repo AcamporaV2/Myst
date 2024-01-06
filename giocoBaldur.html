@@ -5,8 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baldur's Gate 3</title>
     <script src="https://www.paypal.com/sdk/js?client-id=ATGBIOAVs7XTJb0fttF07srlffBlwh7txfjArGVwJ7xx8z4coD1dANxm5U108gWRhxKd4xuvZHXNE5ah"></script>
+    <link rel="manifest" href="../manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('{{ url_for("service_worker", filename="service-worker.js") }}')
+                .then(registration => console.log('Service Worker registered with scope:', registration.scope))
+                .catch(error => console.error('Service Worker registration failed:', error));
+        }
+    </script>
 
-    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
@@ -20,12 +27,10 @@
             </div>
             
             <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="#">Featured</a></li>
-                <li><a href="#">Browse</a></li>
-                <li><a href="#">Community</a></li>
-                <li><a href="../login.html">Login</a></li> 
-                <li><a href="../signup.html">Sign Up</a></li> 
+                <li><a href="index.html">Home</a></li>
+                <li><a onclick=window.location.href="{{ url_for('utente') }}">Utente</a></li>
+                <li><a href="login.html">Login</a></li> 
+                <li><a href="signup.html">Sign Up</a></li> 
             </ul>
         </nav>
     </header>
@@ -34,7 +39,7 @@
         <div class="section-container">
             <h1>Baldur's Gate 3</h1>
             <img src="/static/images/game7.jpg">
-            <p>Raduna il tuo party, e ritorna nei Reami Perduti in una storia di compagnia e tradimento, sacrificio e sopravvivenza e il richiamo del potere assoluto.</p>
+            <p>Raduna il tuo party, trova nuovi compagni e ritorna nei Reami Perduti in una storia di compagnia, tradimento, sacrificio, avventura e sopravvivenza  e al richiamo del potere assoluto.</p>
         </div>
     </section>
 
@@ -64,9 +69,9 @@
     <section id="reviews">
         <div class="section-container">
             <h2>Reviews</h2>
-            <p><a href="https://www.pcgamer.com/baldurs-gate-3-review/" class="custom-link">PC Games</a> - "Baldur's Gate 3 is an unrivaled RPG that will swallow your life whole", 97/100</p>
-            <p><a href="https://it.ign.com/baldurs-gate-iii/204936/review/baldurs-gate-iii-la-recensione" class="custom-link">IGN</a> - "Esperienza mozzafiato", 9.6/10</p>
-            <p><a href="https://multiplayer.it/recensioni/baldurs-gate-3-recensione-dello-straordinario-gdr-di-larian.html" class="custom-link">Multiplayer</a> - "Dopo esserci persi per decine di ore nel gigantesco mondo di Baldur's Gate 3, vi raccontiamo dell'ambizioso GDR di Larian nella nostra recensione", 9.5/10</p>
+            <p><a href="https://www.pcgamer.com/baldurs-gate-3-review/">PC Games</a> - "Baldur's Gate 3 is an unrivaled RPG that will swallow your life whole", 97/100</p>
+            <p><a href="https://it.ign.com/baldurs-gate-iii/204936/review/baldurs-gate-iii-la-recensione">IGN</a> - "Esperienza mozzafiato", 9.6/10</p>
+            <p><a href="https://multiplayer.it/recensioni/baldurs-gate-3-recensione-dello-straordinario-gdr-di-larian.html">Multiplayer</a> - "Dopo esserci persi per decine di ore nel gigantesco mondo di Baldur's Gate 3, vi raccontiamo dell'ambizioso GDR di Larian nella nostra recensione", 9.5/10</p>
         </div>
     </section>
 
