@@ -17,5 +17,5 @@ This project is a Web App of a Digital marketplace of games.
 
 # Setup
 - Download and setup MongoDB Community server
-- For Python & Flask libraries check the requirement.txt file inside the repository
+- For Python & Flask libraries check the requirement.txt file in the static folder inside the repository
 - Run index.py to run the Web App (default port is 5000) 
