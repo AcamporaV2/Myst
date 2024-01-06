@@ -6,7 +6,15 @@
     <title>Outer Wilds</title>
     <script src="https://www.paypal.com/sdk/js?client-id=ATGBIOAVs7XTJb0fttF07srlffBlwh7txfjArGVwJ7xx8z4coD1dANxm5U108gWRhxKd4xuvZHXNE5ah"></script>
 
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="../manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('{{ url_for("service_worker", filename="service-worker.js") }}')
+                .then(registration => console.log('Service Worker registered with scope:', registration.scope))
+                .catch(error => console.error('Service Worker registration failed:', error));
+        }
+    </script>
+
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
@@ -63,9 +71,9 @@
     <section id="reviews">
         <div class="section-container">
             <h2>Reviews</h2>
-            <p><a href="https://it.ign.com/outer-wilds/155163/review/outer-wilds-la-recensione" class="custom-link">IGN</a> - "Viaggi spaziali alla fine del mondo", 8.7/10</p>
-            <p><a href="https://www.spaziogames.it/recensioni/outer-wilds-recensione" class="custom-link">Spaziogame</a> - "Se i videogiochi, anche quelli single-player, sono aggregazione, Outer Wilds centra in pieno il suo obiettivo ", 8.5/10</p>
-            <p><a href="https://multiplayer.it/recensioni/outer-wilds-recensione.html" class="custom-link">Multiplayer</a> - "La recensione di Outer Wilds parla di loop temporali, un universo in procinto di collassare su se stesso e tanti misteri da risolvere!", 8.8/10</p>
+            <p><a href="https://it.ign.com/outer-wilds/155163/review/outer-wilds-la-recensione">IGN</a> - "Viaggi spaziali alla fine del mondo", 8.7/10</p>
+            <p><a href="https://www.spaziogames.it/recensioni/outer-wilds-recensione">Spaziogame</a> - "Se i videogiochi, anche quelli single-player, sono aggregazione, Outer Wilds centra in pieno il suo obiettivo ", 8.5/10</p>
+            <p><a href="https://multiplayer.it/recensioni/outer-wilds-recensione.html">Multiplayer</a> - "La recensione di Outer Wilds parla di loop temporali, un universo in procinto di collassare su se stesso e tanti misteri da risolvere!", 8.8/10</p>
         </div>
 
     <section id="buy-now">

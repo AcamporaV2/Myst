@@ -6,7 +6,15 @@
     <title>Mirror's Edge</title>
     <script src="https://www.paypal.com/sdk/js?client-id=ATGBIOAVs7XTJb0fttF07srlffBlwh7txfjArGVwJ7xx8z4coD1dANxm5U108gWRhxKd4xuvZHXNE5ah"></script>
 
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="../manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('{{ url_for("service_worker", filename="service-worker.js") }}')
+                .then(registration => console.log('Service Worker registered with scope:', registration.scope))
+                .catch(error => console.error('Service Worker registration failed:', error));
+        }
+    </script>
+
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
@@ -63,8 +71,8 @@
     <section id="reviews">
         <div class="section-container">
             <h2>Reviews</h2>
-            <p><a href="https://www.everyeye.it/articoli/recensione-mirror-s-edge-8559.html" class="custom-link">everyeye</a> - "La corsa di EA, con uno slancio innovativo senza pari ", 8/10</p>
-            <p><a href="https://multiplayer.it/recensioni/mirrors-edge-recensione.html" class="custom-link">Multiplayer</a> - "Sui tetti della Next Gen con il nuovo titolo di Dice ed Electronic Arts", 8.3/10</p>
+            <p><a href="https://www.everyeye.it/articoli/recensione-mirror-s-edge-8559.html">everyeye</a> - "La corsa di EA, con uno slancio innovativo senza pari ", 8/10</p>
+            <p><a href="https://multiplayer.it/recensioni/mirrors-edge-recensione.html">Multiplayer</a> - "Sui tetti della Next Gen con il nuovo titolo di Dice ed Electronic Arts", 8.3/10</p>
         </div>
     </section>
 

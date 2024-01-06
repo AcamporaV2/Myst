@@ -6,7 +6,15 @@
     <title>Persona 5 Royal</title>
     <script src="https://www.paypal.com/sdk/js?client-id=ATGBIOAVs7XTJb0fttF07srlffBlwh7txfjArGVwJ7xx8z4coD1dANxm5U108gWRhxKd4xuvZHXNE5ah"></script>
 
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="../manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('{{ url_for("service_worker", filename="service-worker.js") }}')
+                .then(registration => console.log('Service Worker registered with scope:', registration.scope))
+                .catch(error => console.error('Service Worker registration failed:', error));
+        }
+    </script>
+
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
@@ -64,9 +72,9 @@
     <section id="reviews">
         <div class="section-container">
             <h2>Reviews</h2>
-                <p><a href="https://www.everyeye.it/articoli/recensione-persona-5-royal-migliori-jrpg-sempre-italiano-47747.html" class="custom-link">everyeye</a> - "Forti di una nuova compagna, i Phantom Thieves sono tornati per rubare i cuori dei malvagi e riformare completamente una società perversa e allo sbando!", 9.8/10</p>
-                <p><a href="https://www.spaziogames.it/recensioni/persona-5-royal-recensione-switch" class="custom-link">Spaziogame</a> - "L'ennesima rimpatriata con un gruppo di vecchi amici ", 9.4/10</p>
-                <p><a href="https://multiplayer.it/recensioni/persona-5-royal-recensione.html" class="custom-link">Multiplayer</a> - "La recensione di Persona 5 Royal: il gioco di Atlus torna con un'edizione più lunga, ricca, nitida, bilanciata che mai", 9.6/10</p>
+                <p><a href="https://www.everyeye.it/articoli/recensione-persona-5-royal-migliori-jrpg-sempre-italiano-47747.html">everyeye</a> - "Forti di una nuova compagna, i Phantom Thieves sono tornati per rubare i cuori dei malvagi e riformare completamente una società perversa e allo sbando!", 9.8/10</p>
+                <p><a href="https://www.spaziogames.it/recensioni/persona-5-royal-recensione-switch">Spaziogame</a> - "L'ennesima rimpatriata con un gruppo di vecchi amici ", 9.4/10</p>
+                <p><a href="https://multiplayer.it/recensioni/persona-5-royal-recensione.html">Multiplayer</a> - "La recensione di Persona 5 Royal: il gioco di Atlus torna con un'edizione più lunga, ricca, nitida, bilanciata che mai", 9.6/10</p>
         </div>
     </section>
 
