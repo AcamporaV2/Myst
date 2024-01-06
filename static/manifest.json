@@ -1,0 +1,25 @@
+{
+    "name": "Myst",
+    "short_name": "Game Shop",
+    "description": "Myst è una piattaforma per la compravendita di videogiochi",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#171a21",
+    "theme_color": "#66c0f4",
+    "purpose": "any",
+
+    "icons": [
+      {
+        "src": "static/images/myst.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any maskable"
+      }
+      
+      
+    
+    ]
+
+    
+  }
+  
