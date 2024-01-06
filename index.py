@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask import Flask, render_template, request, redirect, send_from_directory, url_for, session, flash
 from flask_session import Session
 from pymongo import MongoClient
 from datetime import datetime
@@ -43,6 +43,7 @@ def signup():
 
     return render_template('signup.html')
 
+
 @app.route('/login.html', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -56,6 +57,11 @@ def login():
         flash('Username and password combination is wrong')
 
     return render_template('login.html')
+
+@app.route('/logout.html')
+def logout():
+    session.pop('username', None)
+    return redirect(url_for('index'))
 
 @app.route('/utente')
 def utente():
@@ -80,10 +86,6 @@ def utente():
         flash('Devi effettuare il login per accedere a questa pagina.')
         return redirect(url_for('login'))
     
-@app.route('/logout.html')
-def logout():
-    session.pop('username', None)
-    return redirect(url_for('index'))
 
 # A series of app.route that renders the various game pages
 @app.route('/giocoAce')
@@ -127,6 +129,14 @@ def Stardew():
 @app.route('/giocoTunic')
 def Tunic():
     return render_template('giocoTunic.html')
+
+@app.route('/manifest.json')
+def manifest():
+    return app.send_static_file('manifest.json')
+
+@app.route('/service-worker.js')
+def service_worker():
+    return send_from_directory('static/js', 'service-worker.js')
 
 if __name__ == "__main__":
     app.run(debug=True)
