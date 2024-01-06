@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile - My Game Shop</title>
-    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="manifest" href="../manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('{{ url_for("service_worker", filename="service-worker.js") }}')
+                .then(registration => console.log('Service Worker registered with scope:', registration.scope))
+                .catch(error => console.error('Service Worker registration failed:', error));
+        }
+    </script>
+
 </head>
 <body>
     <header>
@@ -27,15 +35,15 @@
 
     <main>
         <section class="user-profile">
-            <h2>Benvenuto, {{ username }}!</h2>
-            <div class="user-info">
-                <img src="/static/images/question.png" alt="Error">
+        <h2>Benvenuto, {{ username }}!</h2>
+        <input type="file" id="profileImage" accept="image/*" style="display: none;">
+                <label for="profileImage">
+                    <img src="/static/images/question.png" alt="Error" id="profileImagePreview">
+                </label>
                 <p>Email: {{ email }}</p>
                 <p>Membro dal: {{ data_registrazione }}</p>
-                <p>Stato: Online 🟩</p>
-                <p> ‎ </p>
-            </div>
-            </section>
+                <p>Stato: Online 🟩 </p>
+        </section>
         <h3>Il tuoi ultimi acquisti</h3>
         <section class="user-purchases">
             <div class="game" id="game1"> 
