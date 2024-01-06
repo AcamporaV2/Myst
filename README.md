@@ -12,10 +12,10 @@ This project is a Web App of a Digital marketplace of games.
 ## Server-Side:
 - Python 3.12.0
 - Flask 3.0.0
-- Flask-Session 0.5.0
-- Werkzeug 3.0.1
 - [MongoDB Community server] (https://www.mongodb.com/try/download/community)
-- Pymongo 4.6.1
+  
 
 # Setup
-Download and setup MongoDB Community server 
+Download and setup MongoDB Community server
+For Python & Flask libraries check the requirement.txt file inside the repository
+Run index.py to run the Web App (default port is 5000) 
