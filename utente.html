@@ -44,7 +44,7 @@
                 <p>Membro dal: {{ data_registrazione }}</p>
                 <p>Stato: Online 🟩 </p>
                 <h3><a href="#">Modifica profilo</a></h3>
-                <button>Lista desideri</button>
+                <button onclick=window.location.href="{{ url_for('ListaDes') }}">>Lista desideri</button>
         </section>
         <h3>Il tuoi ultimi acquisti</h3>
         <section class="user-purchases">
