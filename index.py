@@ -130,6 +130,10 @@ def Stardew():
 def Tunic():
     return render_template('giocoTunic.html')
 
+@app.route('/listadesideri')
+def ListaDes():
+    return render_template('listadesideri.html')
+
 @app.route('/manifest.json')
 def manifest():
     return app.send_static_file('manifest.json')
